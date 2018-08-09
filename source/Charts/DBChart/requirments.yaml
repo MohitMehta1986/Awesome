@@ -1,0 +1,5 @@
+dependencies:
+- name: mssql-linux
+  repository: file://../charts/mssql-linux.tgz
+ -name: neo4j
+  repository: file://../charts/neo4j.tgz

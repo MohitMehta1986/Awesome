@@ -1,0 +1,12 @@
+﻿apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ template "feedapp.fullname" . }}
+ spec:
+  template:
+     spec:
+	   containers:
+	   - name: {{ .Chart.name }}
+		  image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+		restartPolicy: OnFailure
+  backoffLimit:4		

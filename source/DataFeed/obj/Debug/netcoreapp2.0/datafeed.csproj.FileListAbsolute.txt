@@ -1,0 +1,11 @@
+C:\K8Integeration\DataIntegeration\source\DataFeed\bin\Debug\netcoreapp2.0\datafeed.deps.json
+C:\K8Integeration\DataIntegeration\source\DataFeed\bin\Debug\netcoreapp2.0\datafeed.runtimeconfig.json
+C:\K8Integeration\DataIntegeration\source\DataFeed\bin\Debug\netcoreapp2.0\datafeed.runtimeconfig.dev.json
+C:\K8Integeration\DataIntegeration\source\DataFeed\bin\Debug\netcoreapp2.0\datafeed.dll
+C:\K8Integeration\DataIntegeration\source\DataFeed\bin\Debug\netcoreapp2.0\datafeed.pdb
+C:\K8Integeration\DataIntegeration\source\DataFeed\obj\Debug\netcoreapp2.0\datafeed.csprojAssemblyReference.cache
+C:\K8Integeration\DataIntegeration\source\DataFeed\obj\Debug\netcoreapp2.0\datafeed.csproj.CoreCompileInputs.cache
+C:\K8Integeration\DataIntegeration\source\DataFeed\obj\Debug\netcoreapp2.0\datafeed.AssemblyInfoInputs.cache
+C:\K8Integeration\DataIntegeration\source\DataFeed\obj\Debug\netcoreapp2.0\datafeed.AssemblyInfo.cs
+C:\K8Integeration\DataIntegeration\source\DataFeed\obj\Debug\netcoreapp2.0\datafeed.dll
+C:\K8Integeration\DataIntegeration\source\DataFeed\obj\Debug\netcoreapp2.0\datafeed.pdb
