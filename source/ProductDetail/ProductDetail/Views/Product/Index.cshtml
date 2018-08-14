@@ -1,0 +1,66 @@
+﻿@model ProductDetail.Models.Productcoll
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+    @using (Html.BeginForm("Index", "Product"))
+    {
+        @Html.TextBoxFor(model => model.Productentity.productID, new { @class = "form-control form-control-style-1 isRequired", placeholder = "Produst ID" })
+        @Html.TextBoxFor(model => model.Productentity.ProductName, new { @class = "form-control form-control-style-1 isRequired", placeholder = "Product Name" })
+        @Html.TextBoxFor(model => model.Productentity.Price, new { @class = "form-control form-control-style-1 isRequired", placeholder = "Price" })
+
+        <input type="submit" value="Submit" />
+    }
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                      ID
+                    </th>
+                    <th>
+                      Price
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.coll)
+                {
+                    <tr>
+                        <td>
+                           @item.ProductName
+                        </td>
+                        <td>
+                            @item.productID
+                        </td>
+                        <td>
+                            @item.Price
+                        </td>
+                        @*<td>
+                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        </td>*@
+                    </tr>
+                }
+            </tbody>
+        </table>
+</body>
+</html>
