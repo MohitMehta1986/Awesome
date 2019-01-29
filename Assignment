@@ -1,0 +1,135 @@
+auto scalling and load balancing an application will try below things
+ 
+1. Create a vm instance template
+2. Cretes vm group instance for two different regions using above created vm instance template  and will put auto scalling on based on cpu utilization and so that autoscaler will create new vm if cpu utilization goes above 60%.
+3. Add a firewall rule and attaché to vm instance template tag
+4. Reserve a static IP for load balancer frontend
+5. Creating a load balancer
+a. Create backend to use above 2 vm groups.
+b. Create a frontend with static ip.
+6. For testing will browse ip from different region and load balancer will route it to vm with nearest zone.
+7. For testing auto scaling will run a program in one of vm so that cpu will got to 90% usage then the auto scaler will create new vm instances.
+8. Lower the cpu utilization then auto scaler should lower down the vm instances.
+Below is all steps with screen shots
+1. Create a vm template with startup scripts below and provide a network tag “http-tag” for tagging in firewall rule.
+#! /bin/bash
+apt-get update
+apt-get install apache2 -y
+apt-get install php7.0 -y
+mv /var/www/html/index.html  /var/www/html/index.php
+cat <<EOF > /var/www/html/index.php
+<html><body><h1>Hello World</h1>
+<?php
+echo gethostname();
+?>
+<p>This page was created from a simple startup script!</p>
+</body></html>
+EOF
+ 
+
+ 
+2. Create 2 vm instance group with above created vm instance template
+a. uk-instance-group---in Europe region
+b. ind-instance-group—in asia region
+ 
+
+3. Keep auto scaling ON while creating vm instance group with cpu utilization more than 60%.
+keep intial data collection time to 10 mins as application installation and provisioning is taking 10 mins.
+ 
+
+4. Add a firewall rule to allow tcp port 80 add targets (tag given to vm instance template)
+ 
+
+ 
+5. Crete an static external ip for load balancer frontend
+ 
+
+ 
+6. Create a load balancer named helloworld-lb
+With 2 backend service using above created vm instances group.
+Load balancer frontend will be using the static ip created above
+ 
+
+ 
+
+ 
+7. Browse both the vm ip separately
+a. Vm from ind-instance-group
+
+b. VM from uk-instance-group
+
+8. To test load balancer browse the frontend ip from local machine
+As my local machine is from india so load balancer will redirect to the asia vm instance
+ 
+ 
+
+ 
+Create a uk based vm machine and curl the load balancer frontend ip it will route the request to Europe based vm that is based on uk-instance-group
+ 
+
+ 
+ 
+9. To test auto scaling perform below steps
+a. run below python program to consume >90% cpu.
+#!/usr/bin/env python
+"""
+Produces load on all available CPU cores
+"""
+ 
+from multiprocessing import Pool
+from multiprocessing import cpu_count
+ 
+def f(x):
+   while True:
+       x*x
+ 
+if __name__ == '__main__':
+   processes = cpu_count()
+   print 'utilizing %d cores\n' % processes
+   pool = Pool(processes)
+pool.map(f, range(processes))
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+b. install “cpulimit”program in one of the unix boxes
+apt-get install cpulimit
+ 
+c. run he python program by below command
+“python cpu-python.py”
+ 
+d. check cpu limit by running command “top”
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Autoscaller will start creating vm below
+ 
+
+ 
+e. bring down cpu to 50% by below command
+“cpulimit -p 11087 -l 50”
+check the process by “top” command
+ 
+
+ 
+After sampling time vm will go downs.
+ 
+
+ 
+ 
