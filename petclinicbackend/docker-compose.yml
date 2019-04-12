@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  customerservice:
+    image: petclinicmicroservice
+    build:
+      context: .
+      dockerfile: petclinicmicroservice/Dockerfile
+
+

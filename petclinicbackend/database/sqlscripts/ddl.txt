@@ -1,0 +1,71 @@
+Drop DATABASE petclinic
+CREATE DATABASE petclinic;
+
+
+USE petclinic;
+
+CREATE TABLE Vets (
+  id INT CHECK (id > 0) NOT NULL IDENTITY PRIMARY KEY,
+  first_name VARCHAR(30),
+  last_name VARCHAR(30)  
+)
+
+CREATE NONCLUSTERED INDEX IX_VETS_last_name   
+    ON Vets (last_name);   
+
+CREATE TABLE Specialties (
+  id INT CHECK (id > 0) NOT NULL IDENTITY PRIMARY KEY,
+  name VARCHAR(80)
+) 
+CREATE NONCLUSTERED INDEX IX_Specialties_name   
+    ON Specialties (name);   
+
+CREATE TABLE VetSpecialties (
+  vet_id INT CHECK (vet_id > 0) NOT NULL,
+  specialty_id INT CHECK (specialty_id > 0) NOT NULL,
+  FOREIGN KEY (vet_id) REFERENCES vets(id),
+  FOREIGN KEY (specialty_id) REFERENCES specialties(id),
+  UNIQUE (vet_id,specialty_id)
+) 
+
+CREATE TABLE Types (
+  id INT CHECK (id > 0) NOT NULL IDENTITY PRIMARY KEY,
+  name VARCHAR(80)
+)
+
+CREATE NONCLUSTERED INDEX IX_TYPES_NAME   
+    ON Types (name); 
+
+CREATE TABLE Owners (
+  id INT CHECK (id > 0) NOT NULL IDENTITY PRIMARY KEY,
+  first_name VARCHAR(30),
+  last_name VARCHAR(30),
+  address VARCHAR(255),
+  city VARCHAR(80),
+  telephone VARCHAR(20)
+)
+
+CREATE NONCLUSTERED INDEX IX_OWNERS_last_name   
+    ON Owners (last_name)
+
+CREATE TABLE Pets (
+  id INT CHECK (id > 0) NOT NULL IDENTITY PRIMARY KEY,
+  name VARCHAR(30),
+  birth_date DATE,
+  type_id INT CHECK (type_id > 0) NOT NULL,
+  owner_id INT CHECK (owner_id > 0) NOT NULL,
+  FOREIGN KEY (owner_id) REFERENCES owners(id),
+  FOREIGN KEY (type_id) REFERENCES types(id)
+)
+
+CREATE NONCLUSTERED INDEX IX_PETS_NAME   
+    ON Pets (name);
+
+CREATE TABLE Visits (
+  id INT CHECK (id > 0) NOT NULL IDENTITY PRIMARY KEY,
+  pet_id INT CHECK (pet_id > 0) NOT NULL,
+  visit_date DATE,
+  description VARCHAR(255),
+  FOREIGN KEY (pet_id) REFERENCES pets(id)
+)
+
