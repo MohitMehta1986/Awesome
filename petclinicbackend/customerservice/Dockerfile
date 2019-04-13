@@ -2,13 +2,13 @@ FROM microsoft/aspnetcore AS base
 WORKDIR /app
 EXPOSE 80
 
-FROM microsoft/aspnetcore-build:2.1 AS build
+FROM microsoft/aspnetcore-build AS build
 WORKDIR /src
 COPY *.sln ./
-COPY customerservice/customerservice.csproj customerservice/
+COPY customerservice/petclinicmicroservice.csproj petclinicmicroservice/
 RUN dotnet restore
 COPY . .
-WORKDIR /src/customerservice
+WORKDIR /src/petclinicmicroservice
 RUN dotnet build -c Release -o /app
 
 FROM build AS publish
@@ -17,4 +17,4 @@ RUN dotnet publish -c Release -o /app
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
-ENTRYPOINT ["dotnet", "customerservice.dll"]
+ENTRYPOINT ["dotnet", "petclinicmicroservice.dll"]
