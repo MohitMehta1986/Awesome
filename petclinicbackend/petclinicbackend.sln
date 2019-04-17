@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "petclinicmicroservice", "customerservice\petclinicmicroservice.csproj", "{D3B14021-2303-4393-B637-97A966D60914}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "database", "database\database.csproj", "{22039312-E854-4EC2-9738-700CEF4C857D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "database", "database\database.csproj", "{22039312-E854-4EC2-9738-700CEF4C857D}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{5CE0E431-E4CA-4993-AE3F-E74DA950CB21}"
 EndProject

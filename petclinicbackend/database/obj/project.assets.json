@@ -695,11 +695,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\WorkingArea\\Mdx\\GCPSampleProject\\ASPNetCoreGraphQL-master\\src\\backend\\database\\database.csproj",
+      "projectUniqueName": "C:\\WorkingArea\\Mdx\\GCPSampleProject\\ASPNetCoreGraphQL-master\\src_test\\backend\\database\\database.csproj",
       "projectName": "database",
-      "projectPath": "C:\\WorkingArea\\Mdx\\GCPSampleProject\\ASPNetCoreGraphQL-master\\src\\backend\\database\\database.csproj",
+      "projectPath": "C:\\WorkingArea\\Mdx\\GCPSampleProject\\ASPNetCoreGraphQL-master\\src_test\\backend\\database\\database.csproj",
       "packagesPath": "C:\\Users\\KUMAITH\\.nuget\\packages\\",
-      "outputPath": "C:\\WorkingArea\\Mdx\\GCPSampleProject\\ASPNetCoreGraphQL-master\\src\\backend\\database\\obj\\",
+      "outputPath": "C:\\WorkingArea\\Mdx\\GCPSampleProject\\ASPNetCoreGraphQL-master\\src_test\\backend\\database\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

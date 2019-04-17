@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
+using Google.Cloud.Datastore.V1;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 using petclinicmicroservice.Interfaces;
@@ -33,6 +34,7 @@ namespace petclinicmicroservice.Helper
 					return GetSqlConnection(connectionStringBuilder.ToString());
 					
 				case "MySql.Data":
+					Console.WriteLine("connection string:" +connectionStringBuilder);
 					return GetMySqlConnection(connectionStringBuilder.ToString());
 				default:
 					return GetMySqlConnection(connectionStringBuilder.ToString());
@@ -57,6 +59,7 @@ namespace petclinicmicroservice.Helper
 				return dbConnection;*/
 			
 		}
+
 
 		private MySqlConnection GetMySqlConnection(string connectionString)
 		{

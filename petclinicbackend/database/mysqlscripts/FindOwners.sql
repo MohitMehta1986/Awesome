@@ -7,6 +7,6 @@ DELIMITER //
 	,address as 'Address'
 	,city as 'City'
 	,telephone as 'Telephone'
-	FROM Owners where id=Ownerid;
+	FROM owners where id=Ownerid;
    END //
  DELIMITER ;

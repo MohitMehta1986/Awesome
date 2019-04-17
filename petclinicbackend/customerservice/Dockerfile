@@ -1,15 +1,20 @@
-FROM microsoft/aspnetcore AS base
+FROM microsoft/dotnet:2.1-aspnetcore-runtime AS base
+
 WORKDIR /app
 EXPOSE 80
 
-FROM microsoft/aspnetcore-build AS build
+FROM microsoft/dotnet:2.1-sdk AS build
 WORKDIR /src
-COPY *.sln ./
-COPY customerservice/petclinicmicroservice.csproj petclinicmicroservice/
-RUN dotnet restore
-COPY . .
+RUN ls -a
+
+COPY petclinicmicroservice.csproj petclinicmicroservice/
 WORKDIR /src/petclinicmicroservice
-RUN dotnet build -c Release -o /app
+
+RUN dotnet restore
+COPY . ./
+
+WORKDIR /src/petclinicmicroservice
+#RUN dotnet build -c Release -o /app
 
 FROM build AS publish
 RUN dotnet publish -c Release -o /app

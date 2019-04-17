@@ -8,3 +8,10 @@ services:
       dockerfile: petclinicmicroservice/Dockerfile
 
 
+
+  testapplication:
+    image: testapplication
+    build:
+      context: .
+      dockerfile: ../testapplication/Dockerfile
+

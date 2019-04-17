@@ -57,27 +57,6 @@ namespace petclinicmicroservice.Helper
 
 	    public AngularWebApi.Models.Owner[] FindAll()
         {
-            /*var ownerlist = new List<AngularWebApi.Models.Owner>();
-			using (SqlConnection conn = new SqlConnection("Application Name = Service; Data Source = DELMW51370\\SQLSERVER2014; Initial Catalog = petclinic; Integrated Security = True; Connection Timeout = 120; MultipleActiveResultSets = True; "))
-			{
-				SqlDataReader dr = SQLHelper.ExecuteReader(conn, System.Data.CommandType.Text,
-					@"SELECT [id],[first_name],[last_name],[address],[city],[telephone] FROM[dbo].owners", null);
-				while (dr.Read())
-				{
-					AngularWebApi.Models.Owner o = new AngularWebApi.Models.Owner
-					{
-						id = System.Convert.ToInt32(dr[0]),
-						firstName = System.Convert.ToString(dr[1]),
-						lastName = System.Convert.ToString(dr[2]),
-						address = System.Convert.ToString(dr[3]),
-						city = System.Convert.ToString(dr[4]),
-						telephone = System.Convert.ToString(dr[5]),
-						pet=Enumerable.Empty<AngularWebApi.Models.Pet>().ToArray()
-					};
-					ownerlist.Add(o);
-				}
-			}
-            return ownerlist.ToArray();*/
 			var findAllOwnerCommand=new FindAllOwnerCommand();
 	        findAllOwnerCommand.Execute(dbConnection);
 	        return findAllOwnerCommand.Result;

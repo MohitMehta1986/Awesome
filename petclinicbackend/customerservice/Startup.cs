@@ -43,14 +43,21 @@ namespace petclinicmicroservice
 				case "SQL":
 					services.AddScoped(db =>
 						new ConnectionFactory().Create(Configuration.GetConnectionString("DefaultConnection")));
+					services.AddScoped<IOwnerRepository, OwnerRepository>();
 					break;
 				case "MySQL":
 					services.AddScoped(db =>
 						new ConnectionFactory().Create(Configuration.GetConnectionString("DefaultConnectionMySql")));
+					services.AddScoped<IOwnerRepository, OwnerRepository>();
 					break;
+				case "CloudSQL":
+					services.AddScoped<IOwnerRepository, OwnerGcpRepository>(
+						service => new OwnerGcpRepository(Configuration.GetConnectionString("CloudSqlProjectID")));
+					break;
+
 			}
 			
-	        services.AddScoped<IOwnerRepository, OwnerRepository>();
+	       
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
