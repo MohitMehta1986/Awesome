@@ -35,6 +35,13 @@ namespace petclinicmicroservice.Helper
 					
 				case "MySql.Data":
 					Console.WriteLine("connection string:" +connectionStringBuilder);
+					var mysqlconnectionstring = new MySqlConnectionStringBuilder(connectionStringBuilder.ToString())
+					{
+						SslMode = MySqlSslMode.None,
+						ConnectionTimeout = 1000,
+						DefaultCommandTimeout = 1000
+					};
+					Console.WriteLine("my sql connection string:" + mysqlconnectionstring.ConnectionString);
 					return GetMySqlConnection(connectionStringBuilder.ToString());
 				default:
 					return GetMySqlConnection(connectionStringBuilder.ToString());
