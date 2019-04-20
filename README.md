@@ -19,4 +19,5 @@
           a. kubectl create secret generic credentials --from-file=<path to json file>(i.e /home/g86mehtamohit/mysqlacesskey.json)
       v.  kubectl apply -f deployment.yaml(attached deployment.yaml)   
       vi. kubectl expose deployment petclinic-restservice --type="LoadBalancer" --port=80
+  9 browse http://<external ip>/petclinic/api/owners
   
