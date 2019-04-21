@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: petclinic-app
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: petclinic-app
+    spec:
+      containers:
+      - name: angular-app
+        image: gcr.io/petclinicproject-237509/petclinicfrontend:v1
+        ports:
+        - containerPort: 80
+          protocol: TCP
