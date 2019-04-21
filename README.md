@@ -28,7 +28,7 @@
       2. docker build -t gcr.io/${PROJECT_ID}/petclinicfrontend:v1 .
       3. docker push gcr.io/${PROJECT_ID}/petclinicfrontend:v1
       4. create cluster gcloud container clusters create petclinic-app --zone us-central1-a
-      5. kubectl apply -f deployment_frontend.yaml(attached deployment.yaml)  
+      5. kubectl apply -f deployment_frontend.yaml(attached deployment_frontend.yaml)  
       6. kubectl expose deployment petclinic-app --type="LoadBalancer" --port=80
       7. Browse the usrl with the external ip generated
   
