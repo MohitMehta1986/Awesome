@@ -1,12 +1,12 @@
 # Awesome
 # Git
 #petclinic
-#DB steps 
+# DB steps 
 1. create cloud sql instacnce
 2. create db and procedures with scripts present at Awesome/petclinicbackend/database/mysqlscripts/
 3. give the password to root same is going to be use in appsetting.json  
 
-#Steps to run the microservice on GKE
+# Steps to run the microservice on GKE
   1. create my sql server on cloud sql 
   2. To connect the application pod to my sql we need to use sql proxy 
       more details about proxy is on 
