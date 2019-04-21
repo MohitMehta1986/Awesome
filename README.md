@@ -17,7 +17,18 @@
       iii. docker push gcr.io/${PROJECT_ID}/petclinicrestservice:v1
       iv. create secret key from private key file of service account
           a. kubectl create secret generic credentials --from-file=<path to json file>(i.e /home/g86mehtamohit/mysqlacesskey.json)
-      v.  kubectl apply -f deployment.yaml(attached deployment.yaml)   
-      vi. kubectl expose deployment petclinic-restservice --type="LoadBalancer" --port=80
+      v.  create cluster -- gcloud container clusters create petclinic-restservice --zone us-central1-a
+      vi.  kubectl apply -f deployment.yaml(attached deployment.yaml)   
+      vii. kubectl expose deployment petclinic-restservice --type="LoadBalancer" --port=80
   9 browse http://<external ip>/petclinic/api/owners
+  
+  # Steps to run petclinic frontend
+      Edit environment.ts file in (\Awesome\petclinicfrontend\src\app\owners) and update url for rest service http://<external ip>/petclinic/api generated above
+      1.  export PROJECT_ID=$(gcloud config get-value core/project)---set project id
+      2. docker build -t gcr.io/${PROJECT_ID}/petclinicfrontend:v1 .
+      3. docker push gcr.io/${PROJECT_ID}/petclinicfrontend:v1
+      4. create cluster gcloud container clusters create petclinic-app --zone us-central1-a
+      5. kubectl apply -f deployment_frontend.yaml(attached deployment.yaml)  
+      6. kubectl expose deployment petclinic-app --type="LoadBalancer" --port=80
+      7. Browse the usrl with the external ip generated
   
