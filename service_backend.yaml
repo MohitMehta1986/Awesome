@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: petclinic-restservice
+spec:
+  selector:
+    app: petclinic-restservice
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
