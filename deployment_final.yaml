@@ -11,15 +11,15 @@ spec:
     spec:
       containers:
       - env:
-        image: gcr.io/petclinicproject-237509/petclinicrestservice:v19
+        image: gcr.io/pet-clinic-235417/petclinicrestservice:latest
         name: petclinic-restservice
         ports:
         - containerPort: 80
           protocol: TCP
       - command:
         - /cloud_sql_proxy
-        - -instances=petclinicproject-237509:us-central1:petclininc-instance-1=tcp:3307
-        - -credential_file=/secrets/cloudsql/mysqlacesskey.json
+        - -instances=pet-clinic-235417:us-central1:petclinic=tcp:3307
+        - -credential_file=/secrets/cloudsql/key.json
         image: gcr.io/cloudsql-docker/gce-proxy:1.11
         name: cloudsql-proxy
         volumeMounts:
@@ -29,4 +29,4 @@ spec:
       volumes:
       - name: cloudsql-instance-credentials
         secret:
-          secretName: credentials
+          secretName: pet-key
