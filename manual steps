@@ -10,3 +10,5 @@ steps need to be performed manually
 8. expose the service manually
 9. pass the service ip dynamically to service.yaml
    workaround: create static ip in same region as cluster and expose the service on same ip by service.yaml
+   
+   kubectl expose deployment petclinic-restservice --type="LoadBalancer" --target-port=80 --load-balancer-ip='34.73.122.77'
