@@ -1,0 +1,12 @@
+steps need to be performed manually
+1. db need to be created in same project 
+2. enable sql admin api
+2. cluster creation and same name used in cloud build yaml file 
+3. service account creation and provide roles it as sql admin
+4. generate secret from service account key (json file) and update it in deployment.yaml
+5. give access to cloudbuild.gserviceaccount.com (Role: Kubernetes Engine Admin)
+6. don't give any version or tags for images(how to pass version from cloudbuild yaml to deployment.yaml to get specific version image)
+7. pass projectid to .yaml file for image pull
+8. expose the service manually
+9. pass the service ip dynamically to service.yaml
+   workaround: create static ip in same region as cluster and expose the service on same ip by service.yaml
