@@ -1,11 +1,22 @@
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
+  labels:
+    run: petclinic-restservice
   name: petclinic-restservice
+  namespace: default
 spec:
+  ports:
+  - nodePort: 31596
+    port: 80
+    protocol: TCP
+    targetPort: 80
   selector:
     app: petclinic-restservice
-  ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 80
+    run: petclinic-restservice
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - ip: 35.232.160.245
