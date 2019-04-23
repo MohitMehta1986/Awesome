@@ -11,14 +11,14 @@ spec:
     spec:
       containers:
       - env:
-        image: gcr.io/certificationproject-238411/petclinic-restservice
+        image: gcr.io/certificationproject-238515/petclinic-restservice
         name: petclinic-restservice
         ports:
         - containerPort: 80
           protocol: TCP
       - command:
         - /cloud_sql_proxy
-        - -instances=certificationproject-238411:us-central1:petclininc-instance-1=tcp:3307
+        - -instances=certificationproject-238515:us-central1:petclininc-instance-1=tcp:3307
         - -credential_file=/secrets/cloudsql/sqlaccesskey.json
         image: gcr.io/cloudsql-docker/gce-proxy:1.11
         name: cloudsql-proxy
