@@ -32,6 +32,14 @@ steps:
     - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
     - 'CLOUDSDK_CONTAINER_CLUSTER=pet-clinic-backend-cluster'
     
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    gcloud components install kubectl
+    gcloud container clusters get-credentials pet-clinic-frontend-cluster --zone us-central1-a
+    
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
     - 'apply'
