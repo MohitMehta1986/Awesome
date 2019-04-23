@@ -16,5 +16,15 @@ steps:
     - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
     - 'CLOUDSDK_CONTAINER_CLUSTER=pet-clinic-backend-cluster'
     
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+    - 'apply'
+    - '-f'
+    - 'deployment_service.yaml'
+
+  env:
+    - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+    - 'CLOUDSDK_CONTAINER_CLUSTER=pet-clinic-backend-cluster'
+    
 images:
 - 'gcr.io/$PROJECT_ID/petclinic-restservice'
