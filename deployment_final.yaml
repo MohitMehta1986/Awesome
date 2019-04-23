@@ -19,7 +19,7 @@ spec:
       - command:
         - /cloud_sql_proxy
         - -instances=petclinicproject-237509:us-central1:petclininc-instance-1=tcp:3307
-        - -credential_file=/secrets/cloudsql/mysqlacesskey.json
+        - -credential_file=/secrets/cloudsql/sqlaccesskey.json
         image: gcr.io/cloudsql-docker/gce-proxy:1.11
         name: cloudsql-proxy
         volumeMounts:
