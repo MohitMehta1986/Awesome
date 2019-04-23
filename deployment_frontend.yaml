@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: angular-app
-        image: gcr.io/certificationproject-238411/petclinicfrontend
+        image: gcr.io/certificationproject-238411/petclinic-frontend
         ports:
         - containerPort: 80
           protocol: TCP
