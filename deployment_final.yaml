@@ -12,6 +12,7 @@ spec:
       containers:
       - env:
         image: gcr.io/certificationproject-238411/petclinic-restservice
+        name: petclinic-restservice
         ports:
         - containerPort: 80
           protocol: TCP
