@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - env:
-        image: gcr.io/petclinicproject-237509/petclinicrestservice:v19
+        image: gcr.io/petclinicproject-237509/petclinicrestservice
         name: petclinic-restservice
         ports:
         - containerPort: 80
