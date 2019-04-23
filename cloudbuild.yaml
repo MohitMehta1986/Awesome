@@ -19,7 +19,7 @@ steps:
     - 'deployment_final.yaml'
 
   env:
-    - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+    - 'CLOUDSDK_COMPUTE_ZONE=asia-east1-a'
     - 'CLOUDSDK_CONTAINER_CLUSTER=pet-clinic-backend-cluster'
     
 - name: 'gcr.io/cloud-builders/kubectl'
@@ -29,7 +29,7 @@ steps:
     - 'service_backend.yaml'
 
   env:
-    - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+    - 'CLOUDSDK_COMPUTE_ZONE=asia-east1-a'
     - 'CLOUDSDK_CONTAINER_CLUSTER=pet-clinic-backend-cluster'
     
 - name: 'gcr.io/cloud-builders/gcloud'
