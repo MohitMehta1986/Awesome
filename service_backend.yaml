@@ -11,9 +11,7 @@ spec:
     protocol: TCP
     targetPort: 80
   selector:
-    app: petclinic-restservice
     run: petclinic-restservice
-  sessionAffinity: None
   type: LoadBalancer
 status:
   loadBalancer:
