@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: petclinic-app
+  name: petclinic-app
+  namespace: default
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    run: petclinic-app
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - ip: 35.188.132.13
