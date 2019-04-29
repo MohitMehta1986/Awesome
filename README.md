@@ -38,4 +38,9 @@
       5. kubectl apply -f deployment_frontend.yaml(attached deployment_frontend.yaml)  
       6. kubectl expose deployment petclinic-app --type="LoadBalancer" --port=80
       7. Browse the usrl with the external ip generated
+      
+   # Steps to setup CI/CD through google respository and cloud build triggers
+     1. set up new repository in cloud repsitory
+     2. create trigger for cloud build using cloudbuild.yaml file
+     3. Follow manual steps mentioned in attached manaul steps documents before triggering the build
   
