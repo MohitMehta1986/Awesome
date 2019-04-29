@@ -9,7 +9,7 @@ before_script:
   - chmod a+x ./build.sh
   - chmod a+x ./deploy.sh
 script:
-  - petclinicbackend/customerservice/build.sh
+  - ./build.sh
 deploy:
   - provider: script
     script: ./deploy.sh $TRAVIS_TAG
