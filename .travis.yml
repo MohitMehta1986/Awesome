@@ -6,7 +6,7 @@ dotnet: 2.1.502
 install:
   - export DOTNET_CLI_TELEMETRY_OPTOUT=1
 before_script:
-  - chmod a+x petclinicbackend/customerservice/build.sh
+  - chmod a+x ./build.sh
   - chmod a+x ./deploy.sh
 script:
   - petclinicbackend/customerservice/build.sh
