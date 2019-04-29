@@ -1,4 +1,4 @@
 #!/bin/bash
 set -ev
-dotnet restore
+dotnet restore petclinicbackend/customerservice/petclinicmicroservice.csproj
 dotnet build -c Release
