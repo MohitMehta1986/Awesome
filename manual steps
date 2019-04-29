@@ -7,7 +7,7 @@ steps need to be performed manually
 5. give access to cloudbuild.gserviceaccount.com (Role: Kubernetes Engine Admin)
 6. don't give any version or tags for images(how to pass version from cloudbuild yaml to deployment.yaml to get specific version image)
 7. pass projectid to .yaml file for image pull
-8. expose the service manually
+8. expose the service manually by using service.yaml file
 9. pass the service ip dynamically to service.yaml
    workaround: create static ip in same region as cluster and expose the service on same ip by service.yaml
    
