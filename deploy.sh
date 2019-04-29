@@ -6,7 +6,7 @@ TAG=$1
 # DOCKER_PASSWORD=$3
 
 # Create publish artifact
-dotnet publish -c Release src
+dotnet publish petclinicbackend/customerservice/petclinicmicroservice.csproj -c Release src
 
 # Build the Docker images
 docker build -t repository/project:$TAG src/bin/Release/netcoreapp1.0/publish/.
