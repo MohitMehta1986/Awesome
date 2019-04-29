@@ -4,5 +4,5 @@ services:
   - docker
 
 before_install:
-  - docker build -t petclinicbackend/customerservice .
+  - docker build -t petclinicbackendservice petclinicbackend/customerservice
  
