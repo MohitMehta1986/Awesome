@@ -1,4 +1,4 @@
-# Awesome
+# Spring PetClinic Sample Application In .Net Core Microservice and Angular 6
 # Git
 #petclinic
 # DB steps 
