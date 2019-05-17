@@ -72,7 +72,7 @@ namespace petclinicmicroservice
             {
                 app.UseHsts();
             }
-
+            Console.WriteLine("enviroment Name:{0}", env.EnvironmentName);
             app.UseHttpsRedirection();
 	        app.UseCors("_myAllowSpecificOrigins");
             app.UseMvc();
