@@ -73,6 +73,15 @@ namespace petclinicmicroservice
                 app.UseHsts();
             }
             Console.WriteLine("enviroment Name:{0}", env.EnvironmentName);
+		
+		 var builder = new ConfigurationBuilder()
+		        .SetBasePath(env.ContentRootPath)
+				.AddJsonFile("app/appconfig.json", optional: true)
+		        .AddEnvironmentVariables();
+	        CloudConfiguration = builder.Build();
+
+		Console.WriteLine("sql proxy connecttion string:{0}",CloudConfiguration["ConnectionStrings:DefaultConnectionMySql"]);
+	        Console.WriteLine("DataProvider:{0}", CloudConfiguration["DataProvider"]);
             app.UseHttpsRedirection();
 	        app.UseCors("_myAllowSpecificOrigins");
             app.UseMvc();
