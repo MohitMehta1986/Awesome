@@ -33,7 +33,7 @@ namespace petclinicmicroservice
 			        builder =>builder.AllowAnyOrigin()
 					        .AllowAnyHeader()
 					        .AllowAnyMethod()
-							.AllowCredentials()
+						.AllowCredentials()
 			        );
 	        });
 
@@ -78,7 +78,7 @@ namespace petclinicmicroservice
 		
 		 var builder = new ConfigurationBuilder()
 		        .SetBasePath(env.ContentRootPath)
-				.AddJsonFile("app/appconfig.json", optional: true)
+				.AddJsonFile("/app/appsettings.json", optional: true)
 		        .AddEnvironmentVariables();
 	        CloudConfiguration = builder.Build();
 
