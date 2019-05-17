@@ -10,9 +10,11 @@ spec:
         run: petclinic-restservice
     spec:
       containers:
-      - env:
-        image: gcr.io/certificationproject-238515/petclinic-restservice
-        name: petclinic-restservice
+      - name: petclinic-restservice
+        image: gcr.io/certificationproject-238515/petclinic-restservice 
+        env:
+        - name: "ASPNETCORE_ENVIRONMENT"
+          value: "Kubernetes"
         ports:
         - containerPort: 80
           protocol: TCP
