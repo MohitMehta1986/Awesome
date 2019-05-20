@@ -18,7 +18,7 @@ spec:
         ports:
         - containerPort: 80
           protocol: TCP
-        volumeMounts
+        volumeMounts:
         - name : backend-configmap
           mountPath: /app/appsettings.json
           readOnly: true
