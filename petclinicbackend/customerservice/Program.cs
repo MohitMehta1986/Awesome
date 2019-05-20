@@ -10,8 +10,28 @@ namespace petclinicmicroservice
             CreateWebHostBuilder(args).Build().Run();
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        /*public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+                .UseStartup<Startup>();*/
+        
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) => WebHost.CreateDefaultBuilder(args)
+			.ConfigureAppConfiguration((hostingContext, config) =>
+			{
+				var env = hostingContext.HostingEnvironment;
+
+				if (env.IsDevelopment())
+				{
+					config.AddJsonFile("app/appconfig.json", optional: true, reloadOnChange: true)
+						.AddEnvironmentVariables();
+				}
+				else
+				{
+					config.AddJsonFile("app/appconfig.json", optional: true, reloadOnChange: true)
+						.AddEnvironmentVariables();
+				}
+
+				IConfiguration configInProgress = config.Build();
+
+			}).UseStartup<Startup>();
     }
 }
