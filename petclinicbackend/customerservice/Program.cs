@@ -10,11 +10,11 @@ namespace petclinicmicroservice
             CreateWebHostBuilder(args).Build().Run();
         }
 
-        /*public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();*/
+                .UseStartup<Startup>();
         
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) => WebHost.CreateDefaultBuilder(args)
+       /* public static IWebHostBuilder CreateWebHostBuilder(string[] args) => WebHost.CreateDefaultBuilder(args)
 			.ConfigureAppConfiguration((hostingContext, config) =>
 			{
 				var env = hostingContext.HostingEnvironment;
@@ -32,6 +32,6 @@ namespace petclinicmicroservice
 
 				IConfiguration configInProgress = config.Build();
 
-			}).UseStartup<Startup>();
+			}).UseStartup<Startup>();*/
     }
 }
