@@ -7,6 +7,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Protocols;
 using petclinicmicroservice.Helper;
 using petclinicmicroservice.Interfaces;
+using System;
+using System.Data;
+using System.Data.Common;
+
 
 namespace petclinicmicroservice
 {
