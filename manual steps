@@ -4,6 +4,7 @@ steps need to be performed manually
 2. cluster creation and same name used in cloud build yaml file 
 3. service account creation and provide roles it as sql admin
 4. generate secret from service account key (json file) and update it in deployment.yaml
+5.  generate configmap from appsetting (json file) and update it in deployment.yaml
 5. give access to cloudbuild.gserviceaccount.com (Role: Kubernetes Engine Admin)
 6. don't give any version or tags for images(how to pass version from cloudbuild yaml to deployment.yaml to get specific version image)
 7. pass projectid to .yaml file for image pull
