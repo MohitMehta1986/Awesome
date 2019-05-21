@@ -11,7 +11,8 @@ namespace petclinicmicroservice
         {
             CreateWebHostBuilder(args).Build().Run();
         }
-
+        
+	 //Use below method  if no configmap is going to be used
         /*public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();*/
