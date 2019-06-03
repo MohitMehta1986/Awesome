@@ -1,0 +1,15 @@
+FROM microsoft/dotnet:2.1-sdk AS build-dev
+
+WORKDIR /app
+
+COPY . .
+
+RUN cp Certificates/ca.crt /usr/local/share/ca-certificates/
+RUN update-ca-certificates
+
+RUN dotnet publish petclinicmicroservice.csproj --output /publish/ --configuration Release --source <nuget artifactory path>
+
+FROM microsoft/dotnet:2.1-aspnetcore-runtime
+WORKDIR /publish
+COPY --from=build-dev /publish .
+ENTRYPOINT ["dotnet", "petclinicmicroservice.dll"]
