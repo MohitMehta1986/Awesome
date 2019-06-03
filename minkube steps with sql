@@ -1,0 +1,45 @@
+1.	Install Choco:
+@powershell -NoProfile -ExecutionPolicy Bypass -Command "[System.Net.WebRequest]::DefaultWebProxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH="%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+ 
+2.	Install minikube 
+choco install minikube kubernetes-cli
+3.	set HTTP_PROXY=http://url:8080
+4.	set HTTPS_PROXY=http://url:8080
+ 
+5.) minikube start --bootstrapper=kubeadm--docker-env HTTP_PROXY=http://url:8080 --docker-env HTTPS_PROXY=http://url:8080
+
+# Sql set up on minikube
+   HOW TO MOUNT YOUR CODE FROM LOCAL TO MINIKUBE:
+ 
+    1.) Open minicube from virtual box or putty.
+    2.) create directory where need to mount the code in minikube: 
+       sudo mkdir -p /<name> || true
+     3.) Task to mount code into minikube
+     Use command:
+      a.) Get Ip of adaptor using ipconfig command. virtualbox adaptor ip. Run on cmd.
+      b.) minikube --ip <IP> mount <C://Github use double slash>: <Folder in minikube>
+ 
+     Create Image
+      USED Linux image:docker pull microsoft/mssql-server-linux
+    
+    
+      For MSSQl Server on Windows:
+      docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=yourStrong(!)Password' -p 1433:1433 -d mcr.microsoft.com/mssql/server:2017-latest
+ 
+      Pasted from <https://hub.docker.com/_/microsoft-mssql-server> 
+ 
+   https://joeydantoni.com/2018/04/05/getting-started-with-sql-sql-server-and-kubernetes-part-ii/
+  Create Secret @
+   kubectl create secret generic mssql --from-literal=SA_PASSWORD="MyC0m9l&xP@ssw0rd"
+ 
+     Pasted from <https://joeydantoni.com/2018/04/05/getting-started-with-sql-sql-server-and-kubernetes-part-ii/> 
+ 
+ 
+     Create persistent volume storage file. @C:\Github
+ 
+    Create Deployment File. @C:\Github
+    Expose SQl: 
+ 
+ 
+    While connecting to SQL server connection string should have ",".
+
